@@ -259,6 +259,17 @@ body.dark-mode {
   box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.dark-mode #total-evs,
+.dark-mode #unique-brands,
+.dark-mode #top-City {
+  color: #e0e0e0;
+}
+.dark-mode .chart-container h3,
+.dark-mode .table-section h2
+{
+  color: #bbbbbb;
+}
+
 .dark-mode th {
   background-color: #2d2d2d;
 }
@@ -273,6 +284,29 @@ body.dark-mode {
 
 .dark-mode .card h3 {
   color: #bbbbbb;
+}
+
+.dark-mode select {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444;
+  border-radius: 1rem;
+}
+
+.dark-mode select:focus {
+  outline: none;
+  border-color: #90caf9; /* Optional: blue highlight on focus */
+  box-shadow: 0 0 0 2px rgba(144, 202, 249, 0.3);
+}
+
+.dark-mode option {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode select:hover {
+  background-color: #2a2a2a;
+  cursor: pointer;
 }
 
 .dark-mode .dark-mode-toggle {

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/color/48/dashboard-layout.png">
+    <title>EV Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+
+</head>
+<body>
+    <div class="top-banner"></div>
+    <header id="header">
+           <h1 style="margin-bottom: 0;">EV Dashboard</h1>
+            <p style="margin-top: 0;">Data-driven decisions for electrification</p>
+        <button id="dark-mode-toggle" class="dark-mode-toggle">
+            <span class="toggle-icon">🌙</span> Dark Mode
+        </button>
+    </header>  
+      <div class="container" style="text-align: center;">
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard">
+            <!-- Filters -->
+            <div class="filters">
+                <select id="city-filter">
+                    <option value="">All Cities</option>
+                  </select>
+                
+                <select id="vehicle-type-filter">
+                    <option value="">All Types</option>
+                    <option>BEV</option>
+                    <option>PHEV</option>
+                </select>
+                
+                <div class="range-filter">
+                    <label>Model Year ≥ <span id="year-range-value">2010</span></label>
+                    <input type="range" id="year-filter" min="2010" max="2023" value="2010">
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-cards">
+                <div class="card">
+                    <h3>Total EVs</h3>
+                    <p id="total-evs">0</p>
+                </div>
+                <div class="card">
+                    <h3>Unique Brands</h3>
+                    <p id="unique-brands">0</p>
+                </div>
+                <div class="card">
+                    <h3>Top City</h3>
+                    <p id="top-City">N/A</p>
+                </div>
+            </div>
+
+            <!-- Charts Row 1 -->
+            <div class="chart-row">
+                <div class="chart-container">
+                    <h3>BEV vs PHEV</h3>
+                    <canvas id="typeChart"></canvas>
+                    <br><br>
+                    <hr><br>
+                    <h3>Average Range by Year</h3>
+                    <canvas id="rangeChart"></canvas>
+                </div>
+                <div class="chart-container">
+               
+                   
+                    <h3>EV Concentration Heatmap across Washington</h3>
+                    <div id="heatmap" style="height: 300px;"></div>
+                    <br><br><hr><br>
+                    <h3>EVs by Model Year</h3>
+                    <canvas id="yearChart"></canvas>
+
+        
+                </div>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div class="chart-row">
+                <div class="chart-container">
+                    <h3>Top 5 Manufacturers</h3>
+                    <div class="table-container">
+                        <table id="manufacturer-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Make</th>
+                                    <th>Count</th>
+                                    <th>Share</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Sample Data Table -->
+            <div class="table-section" >
+                <h2>Sample Data (First 50 Records)</h2>
+                <div class="table-container">
+                    <table id="sample-data-table">
+                        <thead>
+                            <tr >
+                                <th>Make</th>
+                                <th>Year</th>
+                                <th>City</th>
+                                <th>Range (mi)</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaW5kcmF5dWRoaCIsImEiOiJjbTh2dTJzaXgwOGJyMmtzZjl6azhvc3MzIn0.d8_eJj5YF2myVKrjTPiP1Q';
+      </script>
+      
+</body>
+</html>
